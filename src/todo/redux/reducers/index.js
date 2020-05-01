@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { ADD_TODO, TODO_DONE } from '../actionTypes';
+import { getNextId } from '../../../utils/objects';
 
 const initialState = {
   todos: [{ id: 1, name: 'Take out trash' }, { id: 2, name: 'Learn React' }]
@@ -9,10 +10,10 @@ function TodoReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
       const { name } = action.payload;
-      let maxId = Math.max.apply(Math, state.todos.map(t => t.id));
+      const nextId = getNextId(state.todos, 'id');
       return {
         ...state,
-        todos: [...state.todos, { id: ++maxId, name }]
+        todos: [...state.todos, { id: nextId, name }]
       };
 
     case TODO_DONE:

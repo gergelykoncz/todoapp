@@ -10,7 +10,7 @@ export const TodoItem = ({ todo, setDone }) => {
     <>
       <div>
         {todo.name}
-        {todo.done ? <>DONE</> : null}
+        {todo.done ? <span className="done">DONE</span> : null}
         <input type="checkbox" onChange={handleCheckbox} checked={todo.done}></input>
       </div>
     </>
