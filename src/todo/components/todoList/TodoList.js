@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, todoDone } from '../redux/actions';
-import { selectTodosByType } from '../redux/selectors';
-import { NewTodo } from './NewTodo';
-import { TodoItem } from './TodoItem';
+import classNames from 'classnames';
+import { addTodo, todoDone } from '../../redux/actions';
+import { selectTodosByType } from '../../redux/selectors';
+import { NewTodo } from '../newTodo/NewTodo';
+import { TodoItem } from '../todoItem/TodoItem';
+
+import './TodoList.scss';
 
 export const TodoList = ({ type }) => {
   const todos = useSelector(selectTodosByType(type));
@@ -28,11 +31,15 @@ export const TodoList = ({ type }) => {
     );
   };
 
+  const classes = classNames('app-todo-list');
+
   return (
     <>
-      <div>
+      <div className={classes}>
         {todos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} setDone={setDone}></TodoItem>
+          <div key={todo.id} className="app-todo-list-item">
+            <TodoItem todo={todo} setDone={setDone}></TodoItem>
+          </div>
         ))}
 
         <NewTodo newTodo={add}></NewTodo>

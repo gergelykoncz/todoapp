@@ -1,0 +1,15 @@
+@import '../../../styles//globals.scss';
+
+.app-todo-item {
+  padding: 20px;
+  box-shadow: $app-box-shadow;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+
+  &-done {
+    text-decoration: line-through;
+  }
+}

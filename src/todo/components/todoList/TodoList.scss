@@ -1,0 +1,7 @@
+@import '../../../styles//globals.scss';
+
+.app-todo-list {
+  &-item {
+    margin-bottom: $default-padding;
+  }
+}

@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import './TodoItem.scss';
 
 export const TodoItem = ({ todo, setDone }) => {
   const handleCheckbox = e => {
     setDone({ id: todo.id, value: e.target.checked });
   };
 
+  const classes = classNames('app-todo-item', {
+    'app-todo-item-done': todo.done
+  });
+
   return (
     <>
-      <div>
+      <div className={classes}>
         {todo.name}
-        {todo.done ? <span className="done">DONE</span> : null}
         <input type="checkbox" onChange={handleCheckbox} checked={todo.done}></input>
       </div>
     </>

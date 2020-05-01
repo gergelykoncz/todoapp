@@ -1,0 +1,21 @@
+@import '../../../styles//globals.scss';
+
+.app-new-todo {
+  display: flex;
+  box-shadow: $app-box-shadow;
+  height: 50px;
+  padding-left: default-padding;
+
+  input {
+    flex: 1 1 0;
+    font-size: 1rem;
+  }
+
+  button {
+    background: $main-button-color;
+    color: #fff;
+    font-size: 1rem;
+    flex: 1 1 1;
+    padding: $default-padding;
+  }
+}

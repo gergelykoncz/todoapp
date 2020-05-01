@@ -19,7 +19,7 @@ describe('TodoItem tests', () => {
       done: true
     };
     const wrapper = shallow(<TodoItem todo={todo} setDone={() => {}} />);
-    expect(wrapper.find('.done').length).toBe(1);
+    expect(wrapper.find('.app-todo-item-done').length).toBe(1);
   });
 
   test('it does not show the DONE text for undone items', () => {
@@ -29,6 +29,6 @@ describe('TodoItem tests', () => {
       done: false
     };
     const wrapper = shallow(<TodoItem todo={todo} setDone={() => {}} />);
-    expect(wrapper.find('.done').length).toBe(0);
+    expect(wrapper.find('.app-todo-item-done').length).toBe(0);
   });
 });
