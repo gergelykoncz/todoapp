@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, TODO_DONE } from '../actionTypes';
+import { ADD_TODO, TODO_DONE, TODOS_FETCHED } from '../actionTypes';
 import { getNextId } from '../../../utils/objects';
 
 const initialState = {
-  todos: [{ id: 1, name: 'Take out trash' }, { id: 2, name: 'Learn React' }]
+  todos: []
 };
 
 function TodoReducer(state = initialState, action) {
@@ -24,6 +24,13 @@ function TodoReducer(state = initialState, action) {
         ...state,
         todos: state.todos.map((todo, i) => (i === targetIndex ? { ...todo, done: value } : todo))
       };
+
+    case TODOS_FETCHED:
+      return {
+        ...state,
+        todos: action.payload
+      };
+
     default:
       return state;
   }
