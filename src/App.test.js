@@ -9,9 +9,4 @@ describe('App tests', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Provider).length).toBe(1);
   });
-
-  test('it should render two TodoLists', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(TodoList).length).toBe(2);
-  });
 });
